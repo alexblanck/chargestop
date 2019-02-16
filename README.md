@@ -78,13 +78,14 @@ Known Limitations
 
 The `main.py` script will currently exit with an error if there is a temporary issue talking to the ChargePoint API. If you want to keep this program running, I reccomend using a process manager of some sort like [Supervisor](http://supervisord.org/) to keep it alive.
 
-Sample supervisor configuration:
+Example supervisor configuration:
 
 ```
 [program:chargestop]
-command=/usr/local/bin/chargestop.py
+command=/usr/local/bin/python3 /usr/local/chargestop/bin/main.py -c /usr/local/chargestop.cfg -v
 redirect_stderr=true
 stdout_logfile=/var/log/chargestop.log
+startsecs=0
 ```
 
 Running Unit Tests
