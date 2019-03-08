@@ -85,7 +85,9 @@ class Client:
         current_charging = most_recent_session['current_charging']
         if current_charging == 'in_use':
             return True
-        if current_charging == 'fully_charged':
+        elif current_charging == 'waiting':
+            return True
+        elif current_charging == 'fully_charged':
             return True
         elif current_charging == 'done':
             return False
